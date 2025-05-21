@@ -39,17 +39,21 @@
             background: linear-gradient(to right, #d6f3f8, #fdfeff);
         }
 
+
         #music-btn {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
+            top: 2vw;
+            /* 按鈕在 GIF 上方（自動縮放距離） */
+            right: 2vw;
+            padding: 1vw 2vw;
+            font-size: 1.5vw;
+            /* 字體大小隨畫面變化 */
             border: none;
-            border-radius: 8px;
+            border-radius: 1vw;
             background: linear-gradient(to right, #699efa, #e52e71);
             color: white;
             cursor: pointer;
+            z-index: 1000;
         }
 
         #music-btn:hover {
@@ -67,11 +71,17 @@
 
         #ikun {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 200px;
-            height: 200px;
-            border-radius: 10px;
+            bottom: 2vw;
+            right: 2vw;
+            width: 12vw;
+            /* 相對螢幕寬度縮放 */
+            height: 12vw;
+            background-image: url("ikun.gif");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            z-index: 999;
+            border-radius: 12px;
             transition: transform 0.3s ease;
         }
 
