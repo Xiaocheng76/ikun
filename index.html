@@ -182,28 +182,37 @@
         Oh eh oh 你到底屬於誰就是現在告訴我</p>
 
     <script>
-        const btn = document.getElementById('music-btn');
-        const music = document.getElementById('music');
+        const btn = document.getElementById("music-btn");
+
+        // 建立音樂和暫停音效物件
+        const music = new Audio("ikunnn.mp3");
+        const pauseSound = new Audio("nigunmaaiyo.mp3");
+
+        pauseSound.volume = 1.0;  // 暫停音效最大聲
+
         let isPlaying = false;
 
-        btn.addEventListener('click', () => {
+        btn.addEventListener("click", () => {
             if (!isPlaying) {
+                music.loop = true; // 讓音樂循環
                 music.play();
-                btn.textContent = '停止音樂';
+                btn.textContent = "停止音樂";
+                isPlaying = true;
             } else {
-                music.pause();
-                btn.textContent = '播放音樂';
-            }
-            isPlaying = !isPlaying;
-        });
+                music.pause(); // 停止主音樂
+                music.currentTime = 0;
 
-        // 偵測音樂結束後，自動重置按鈕狀態
-        music.addEventListener('ended', () => {
-            btn.textContent = '播放音樂';
-            isPlaying = false;
+                pauseSound.currentTime = 0; // 播放暫停音效
+                pauseSound.play();
+                pauseSound.play();
+                pauseSound.play();
+
+                btn.textContent = "播放音樂";
+                isPlaying = false;
+            }
         });
     </script>
-    </script>
+
 </body>
 
 </html>
