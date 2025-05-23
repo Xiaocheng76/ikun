@@ -398,6 +398,11 @@
             }
         });
 
+        music.addEventListener("ended", () => {
+            btn.textContent = "播放音樂";
+            isPlaying = false;
+        });
+
         function changeSong(file, songTitle, lyricContent) {
             // 切歌時先暫停，重置狀態
             if (isPlaying) {
