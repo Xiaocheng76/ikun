@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>迷因歌曲網</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #d6f3f8, #fdfeff);
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft Yahei";
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.8vw;
+            font-size: 1.5vw;
+            font-weight: bold;
+            user-select: none;
+            box-sizing: border-box;
+        }
+
+        #site-title {
+            background: linear-gradient(270deg, #699efa, #e52e71, #f9d423, #699efa);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientAnimation 8s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        #navbar {
+            width: 100%;
+            background-color: #222;
+            color: white;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0.6vw 2vw;
+            font-size: 1.2vw;
+            gap: 2vw;
+            user-select: none;
+            box-sizing: border-box;
+        }
+
+        .nav-item {
+            cursor: pointer;
+            padding: 0.4vw 1vw;
+            border-radius: 0.5vw;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background-color: #699efa;
+        }
+
+        #music-btn {
+            position: absolute;
+            top: 8vw;
+            right: 2vw;
+            padding: 0.5vw 1vw;
+            font-size: 1vw;
+            border: none;
+            border-radius: 0.7vw;
+            background: linear-gradient(to right, #699efa, #e52e71);
+            color: white;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        #music-btn:hover {
+            transform: scale(1.05);
+        }
+
+        #gif {
+            position: fixed;
+            bottom: 2vw;
+            right: 2vw;
+            width: 12vw;
+            height: 12vw;
+            background-image: url("ikun.gif");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            z-index: 999;
+        }
+
+        #gif:hover {
+            transform: scale(1.1);
+        }
+
+        #fancy-line {
+            border: none;
+            height: 4px;
+            background: linear-gradient(to right, #699efa, #e52e71);
+            margin: 30px auto;
+            width: 100vw;
+            max-width: 1000px;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 48px;
+            text-align: center;
+            background: linear-gradient(to right, #699efa, #e52e71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 25px;
+            font-weight: 550;
+            padding: 0 5vw;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        @media (max-width: 768px) {
+            #music-btn {
+                font-size: 3.5vw;
+                padding: 1vw 2vw;
+                top: 18vw;
+            }
+
+            #header {
+                font-size: 4vw;
+                padding: 2vw 4vw;
+            }
+
+            #site-title {
+                font-size: 4vw;
+            }
+
+            #navbar {
+                font-size: 3.5vw;
+                padding: 1vw 4vw;
+                justify-content: flex-start;
+                gap: 4vw;
+            }
+
+            .nav-item {
+                padding: 1vw 3vw;
+                border-radius: 1vw;
+            }
+
+            #ikun {
+                width: 25vw;
+                height: 25vw;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            #fancy-line {
+                width: 100vw;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="site-title">迷因歌曲網</div>
+    </div>
+
+    <div id="navbar">
+        <div class="nav-item" onclick="changeSong('ikunnn.mp3', '只因你太美', lyrics1, 'ikun.gif', 'https://www.bilibili.com/video/BV1J4411v7g6/')">只因你太美</div>
+        <div class="nav-item" onclick="changeSong('rickroll.mp3', 'Never Gonna Give You Up', lyrics2, 'rick.gif', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')">NeverGonna Give You Up</div>
+    </div>
+
+    <div class="container">
+        <h1 id="title">只因你太美</h1>
+        <hr id="fancy-line" />
+
+        <div id="gif"></div>
+
+
+        <p id="lyrics">
+            只因你太美 baby 只因你太美 baby<br>
+            只因你實在是太美 baby 只因你太美 baby<br>
+            迎面走來的你讓我如此蠢蠢欲動<br>
+            這種感覺我從未有<br>
+            Cause I got a crush on you who you<br>
+            你是我的我是你的誰<br>
+            再多一眼看一眼就會爆炸<br>
+            再近一點靠近點快被融化<br>
+            想要把你占為己有baby bae<br>
+            不管走到哪裡都會想起的人是你 you you<br>
+            我應該拿你怎樣<br>
+            Uh 所有人都在看著你<br>
+            我的心總是不安<br>
+            Oh 我現在已病入膏肓<br>
+            Eh eh 難道真的因為你而瘋狂嗎<br>
+            我本來不是這種人<br>
+            因你變成奇怪的人<br>
+            第一次呀變成這樣的我<br>
+            不管我怎么去否認<br>
+            只因你太美 baby 只因你太美 baby<br>
+            只因你實在是太美 baby 只因你太美 baby<br>
+            Oh eh oh 現在確認地告訴我<br>
+            Oh eh oh 你到底屬於誰<br>
+            Oh eh oh 現在確認地告訴我<br>
+            Oh eh oh 你到底屬於誰 就是現在告訴我<br>
+            跟著這節奏 緩緩 make wave<br>
+            甜蜜的奶油 it's your birthday cake<br>
+            男人們的 game call me 你戀人<br>
+            別被欺騙愉快的 I wanna play<br>
+            我的腦海每分每秒只為你一人沉醉<br>
+            最迷人讓我神魂顛倒是你身上香水<br>
+            Oh right baby I'm fall in love with you<br>
+            我的一切你都拿走只要有你就已足夠<br>
+            我到底應該怎樣<br>
+            Uh 我心裡一直很不安<br>
+            其他男人們的視線<br>
+            Oh 全都只看向你的臉<br>
+            Eh eh 難道真的因為你而瘋狂嗎<br>
+            我本來不是這種人<br>
+            因你變成奇怪的人<br>
+            第一次呀變成這樣的我<br>
+            不管我怎么去否認<br>
+            只因你太美 baby 只因你太美 baby<br>
+            只因你實在是太美 baby 只因你太美 baby<br>
+            我願意把我的全部都給你<br>
+            我每天在夢裡都夢見你還有我閉著眼睛也能看到你<br>
+            現在開始我只準你看我<br>
+            I don't wanna wake up in dream 我只想看你這是真心話<br>
+            只因你太美 baby 只因你太美 baby<br>
+            只因你實在是太美 baby 只因你太美 baby<br>
+            Oh eh oh 現在確認的告訴我<br>
+            Oh eh oh 你到底屬於誰<br>
+            Oh eh oh 現在確認的告訴我<br>
+            Oh eh oh 你到底屬於誰<br>
+            就是現在告訴我<br>
+        </p>
+
+        <audio id="music" src="ikunnn.mp3"></audio>
+        <button id="music-btn">播放音樂</button>
+    </div>
+
+    <script>
+        const gif = document.getElementById("gif");
+        const btn = document.getElementById("music-btn");
+        const music = document.getElementById("music");
+        const title = document.getElementById("title");
+        const lyrics = document.getElementById("lyrics");
+        let gifUrl = "https://www.bilibili.com/video/BV1J4411v7g6/"; // 預設值
+
+        // 歌詞資料可改成其他歌詞變數
+        const lyrics1 = `只因你太美 baby 只因你太美 baby<br>
+            只因你實在是太美 baby 只因你太美 baby<br>
+            迎面走來的你讓我如此蠢蠢欲動<br>
+            這種感覺我從未有<br>
+            Cause I got a crush on you who you<br>
+            你是我的我是你的誰<br>
+            再多一眼看一眼就會爆炸<br>
+            再近一點靠近點快被融化<br>
+            想要把你占為己有baby bae<br>
+            不管走到哪裡都會想起的人是你 you you<br>
+            我應該拿你怎樣<br>
+            Uh 所有人都在看著你<br>
+            我的心總是不安<br>
+            Oh 我現在已病入膏肓<br>
+            Eh eh 難道真的因為你而瘋狂嗎<br>
+            我本來不是這種人<br>
+            因你變成奇怪的人<br>
+            第一次呀變成這樣的我<br>
+            不管我怎么去否認<br>
+            只因你太美 baby 只因你太美 baby<br>
+            只因你實在是太美 baby 只因你太美 baby<br>
+            Oh eh oh 現在確認地告訴我<br>
+            Oh eh oh 你到底屬於誰<br>
+            Oh eh oh 現在確認地告訴我<br>
+            Oh eh oh 你到底屬於誰 就是現在告訴我<br>
+            跟著這節奏 緩緩 make wave<br>
+            甜蜜的奶油 it's your birthday cake<br>
+            男人們的 game call me 你戀人<br>
+            別被欺騙愉快的 I wanna play<br>
+            我的腦海每分每秒只為你一人沉醉<br>
+            最迷人讓我神魂顛倒是你身上香水<br>
+            Oh right baby I'm fall in love with you<br>
+            我的一切你都拿走只要有你就已足夠<br>
+            我到底應該怎樣<br>
+            Uh 我心裡一直很不安<br>
+            其他男人們的視線<br>
+            Oh 全都只看向你的臉<br>
+            Eh eh 難道真的因為你而瘋狂嗎<br>
+            我本來不是這種人<br>
+            因你變成奇怪的人<br>
+            第一次呀變成這樣的我<br>
+            不管我怎么去否認<br>
+            只因你太美 baby 只因你太美 baby<br>
+            只因你實在是太美 baby 只因你太美 baby<br>
+            我願意把我的全部都給你<br>
+            我每天在夢裡都夢見你還有我閉著眼睛也能看到你<br>
+            現在開始我只準你看我<br>
+            I don't wanna wake up in dream 我只想看你這是真心話<br>
+            只因你太美 baby 只因你太美 baby<br>
+            只因你實在是太美 baby 只因你太美 baby<br>
+            Oh eh oh 現在確認的告訴我<br>
+            Oh eh oh 你到底屬於誰<br>
+            Oh eh oh 現在確認的告訴我<br>
+            Oh eh oh 你到底屬於誰<br>
+            就是現在告訴我`;
+
+        const lyrics2 = `We're no strangers to love<br>
+            You know the rules and so do I<br>
+            A full commitment's what I'm thinkin' of<br>
+            You wouldn't get this from any other guy<br>
+            I just wanna tell you how I'm feeling<br>
+            Gotta make you understand<br>
+            Never gonna give you up, never gonna let you down<br>
+            Never gonna run around and desert you<br>
+            Never gonna make you cry, never gonna say goodbye<br>
+            Never gonna tell a lie and hurt you<br>
+            We've known each other for so long<br>
+            Your heart's been aching, but you're too shy to say it<br>
+            Inside, we both know what's been going on<br>
+            We know the game and we're gonna play it<br>
+            And if you ask me how I'm feeling<br>
+            Don't tell me you're too blind to see<br>
+            Never gonna give you up, never gonna let you down<br>
+            Never gonna run around and desert you<br>
+            Never gonna make you cry, never gonna say goodbye<br>
+            Never gonna tell a lie and hurt you<br>
+            Never gonna give you up, never gonna let you down<br>
+            Never gonna run around and desert you<br>
+            Never gonna make you cry, never gonna say goodbye<br>
+            Never gonna tell a lie and hurt you<br>
+            We've known each other for so long<br>
+            Your heart's been aching, but you're too shy to say it<br>
+            Inside, we both know what's been going on<br>
+            We know the game and we're gonna play it<br>
+            I just wanna tell you how I'm feeling<br>
+            Gotta make you understand<br>
+            Never gonna give you up, never gonna let you down<br>
+            Never gonna run around and desert you<br>
+            Never gonna make you cry, never gonna say goodbye<br>
+            Never gonna tell a lie and hurt you<br>
+            Never gonna give you up, never gonna let you down<br>
+            Never gonna run around and desert you<br>
+            Never gonna make you cry, never gonna say goodbye<br>
+            Never gonna tell a lie and hurt you<br>
+            Never gonna give you up, never gonna let you down<br>
+            Never gonna run around and desert you<br>
+            Never gonna make you cry, never gonna say goodbye<br>
+            Never gonna tell a lie and hurt you<br>`;
+
+
+        // 播放狀態
+        let isPlaying = false;
+
+        btn.addEventListener("click", () => {
+            if (!isPlaying) {
+                music.play();
+                btn.textContent = "停止音樂";
+                isPlaying = true;
+            } else {
+                music.pause();
+                music.currentTime = 0;
+                btn.textContent = "播放音樂";
+                isPlaying = false;
+            }
+        });
+
+        music.addEventListener("ended", () => {
+            btn.textContent = "播放音樂";
+            isPlaying = false;
+        });
+
+        gif.addEventListener("click", () => {
+            window.open(gifUrl, "_blank");
+        });
+
+        function changeSong(file, songTitle, lyricContent, gifPath, url) {
+            // 切歌時先暫停，重置狀態
+            if (isPlaying) {
+                music.pause();
+                music.currentTime = 0;
+                btn.textContent = "播放音樂";
+                isPlaying = false;
+            }
+
+            // 更新歌曲資訊與歌詞
+            music.src = file;
+            title.textContent = songTitle;
+            lyrics.innerHTML = lyricContent;
+            gif.style.backgroundImage = `url(${gifPath})`;
+            gifUrl = url;
+        }
+    </script>
+</body>
+
+</html>
